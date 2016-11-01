@@ -23,7 +23,7 @@ final class RailsHttpQuery
     {
         $chunks = [];
         foreach (self::generate($query_data) as $key => $value) {
-            $chunks[] = $key . '=' . $value;
+            $chunks[] = $value !== null ? "{$key}={$value}" : $key;
         }
 
         return implode($arg_separator, $chunks);
@@ -59,7 +59,7 @@ final class RailsHttpQuery
 
             } else {
                 // scalar value
-                yield $current_var => rawurlencode($value);
+                yield $current_var => $value !== null ? rawurlencode($value) : null;
             }
         }
     }

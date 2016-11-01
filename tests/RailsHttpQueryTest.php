@@ -40,6 +40,38 @@ class RailsHttpQueryTest extends PHPUnit_Framework_TestCase
         $this->assertQueryString('ids[min]=10&ids[max]=100&ids[avg]=55', $value);
     }
 
+
+    /**
+     * @test
+     * @param string $expected
+     * @param array $data
+     * @dataProvider rack_utils_parse_nested_query_test_cases
+     */
+    public function it_should_pass_rack_utils_parse_nested_query_test_cases($expected, $data)
+    {
+        $this->assertQueryString($expected, $data);
+    }
+
+    /**
+     * @see https://github.com/rack/rack/blob/master/test/spec_utils.rb
+     * @see https://github.com/rack/rack/blob/100745eeb069578aba2ab18969bfb845e880ab8e/test/spec_utils.rb
+     */
+    public static function rack_utils_parse_nested_query_test_cases()
+    {
+        $test_cases = [
+            'foo'           => ['foo' => null],
+            'foo='          => ['foo' => ''],
+            'foo=bar'       => ['foo' => 'bar'],
+            'foo=%22bar%22' => ['foo' => '"bar"'],
+        ];
+
+        $data_set = [];
+        foreach ($test_cases as $expected => $data) {
+            $data_set[$expected] = [$expected, $data];
+        }
+        return $data_set;
+    }
+
     private function assertQueryString($expected, $data, $message = null)
     {
         $encoded = RailsHttpQuery::build($data);
