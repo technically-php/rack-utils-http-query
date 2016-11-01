@@ -10,7 +10,7 @@ This library produces output without explicit indices. As simple as that.
 $vars = ['fruits' => ['apple', 'banana', 'orange']];
 $query_string = \TechnicallyPhp\RackUtilsHttpQuery::build($vars);
 var_dump($query_string); 
-// will output: "fruits[]=apple&fruits[]=banana&fruits[]=orange" (urlencoded)
+// will output: "fruits[]=apple&fruits[]=banana&fruits[]=orange"
 ```
 
 # Motivation
@@ -23,6 +23,6 @@ This is not compatible with the way Rails applications parse requests.
 $vars = ['fruits' => ['apple', 'banana', 'orange']];
 $query_string = http_build_query($vars);
 var_dump($query_string); 
-// will output: "fruits[0]=apple&fruits[1]=banana&fruits[2]=orange" (urlencoded) 
+// will output: "fruits[0]=apple&fruits[1]=banana&fruits[2]=orange"
 ```
 
