@@ -29,7 +29,7 @@ final class RailsHttpQuery
         return implode($arg_separator, $chunks);
     }
 
-    private function generate($query_data, $super_var = null)
+    private static function generate($query_data, $super_var = null)
     {
         $is_incrementing_sequence = true;
         $expected_numeric_idx = 0;
