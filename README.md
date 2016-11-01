@@ -26,3 +26,15 @@ var_dump($query_string);
 // will output: "fruits[0]=apple&fruits[1]=banana&fruits[2]=orange"
 ```
 
+Relevant StackOverflow discussions:
+
+1. [php url query nested array with no index](1)
+
+# Details
+
+This package follows 
+`Rack::Utils.parse_nested_query` [specification](https://github.com/rack/rack/blob/master/test/spec_utils.rb).
+Please check [RackUtilsHttpQueryTest.php](./tests/RackUtilsHttpQueryTest.php#L59).
+
+
+[1] http://stackoverflow.com/questions/11996573/php-url-query-nested-array-with-no-index
