@@ -1,0 +1,16 @@
+{
+    "name": "technically-php/rails-http-query",
+    "description": "Tiny package to build HTTP URL query string compatible with Rails apps",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "e1himself",
+            "email": "ivan.voskoboinyk@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.6"
+    }
+}
