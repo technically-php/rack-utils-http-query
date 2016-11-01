@@ -4,7 +4,7 @@ namespace TechnicallyPhp;
 
 use Traversable;
 
-final class RailsHttpQuery
+final class RackUtilsHttpQuery
 {
     /**
      * Generate URL-encoded query string

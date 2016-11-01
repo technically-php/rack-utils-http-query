@@ -1,8 +1,8 @@
 <?php
 
-use TechnicallyPhp\RailsHttpQuery;
+use TechnicallyPhp\RackUtilsHttpQuery;
 
-class RailsHttpQueryTest extends PHPUnit_Framework_TestCase
+class RackUtilsHttpQueryTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -127,7 +127,7 @@ class RailsHttpQueryTest extends PHPUnit_Framework_TestCase
 
     private function assertQueryString($expected, $data, $message = null)
     {
-        $encoded = RailsHttpQuery::build($data);
+        $encoded = RackUtilsHttpQuery::build($data);
         $this->assertEquals($expected, $encoded, $message);
     }
 }

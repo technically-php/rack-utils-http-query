@@ -1,4 +1,4 @@
-# Rails HTTP query
+# RackUtils HTTP query
 
 Tiny package to build HTTP URL query string compatible with Rails app.
 
@@ -8,7 +8,7 @@ This library produces output without explicit indices. As simple as that.
    
 ``` php
 $vars = ['fruits' => ['apple', 'banana', 'orange']];
-$query_string = \TechnicallyPhp\RailsHttpQuery::build($vars);
+$query_string = \TechnicallyPhp\RackUtilsHttpQuery::build($vars);
 var_dump($query_string); 
 // will output: "fruits[]=apple&fruits[]=banana&fruits[]=orange" (urlencoded)
 ```

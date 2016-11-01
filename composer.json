@@ -1,5 +1,5 @@
 {
-    "name": "technically-php/rails-http-query",
+    "name": "technically-php/rack-utils-http-query",
     "description": "Tiny package to build HTTP URL query string compatible with Rails apps",
     "type": "library",
     "license": "MIT",
