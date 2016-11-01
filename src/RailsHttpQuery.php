@@ -59,7 +59,7 @@ final class RailsHttpQuery
 
             } else {
                 // scalar value
-                yield $current_var => $value;
+                yield $current_var => rawurlencode($value);
             }
         }
     }

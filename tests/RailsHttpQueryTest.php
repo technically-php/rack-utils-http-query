@@ -16,6 +16,15 @@ class RailsHttpQueryTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function it_should_escape_values()
+    {
+        $value = ['ids' => ['[]', '&', '?']];
+        $this->assertQueryString('ids[]=%5B%5D&ids[]=%26&ids[]=%3F', $value);
+    }
+
+    /**
+     * @test
+     */
     public function it_should_not_omit_gapped_numeric_indexes()
     {
         $value = ['ids' => [0 => 1, 1 => 2, 4 => 3]];
