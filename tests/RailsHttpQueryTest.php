@@ -63,6 +63,13 @@ class RailsHttpQueryTest extends PHPUnit_Framework_TestCase
             'foo='          => ['foo' => ''],
             'foo=bar'       => ['foo' => 'bar'],
             'foo=%22bar%22' => ['foo' => '"bar"'],
+
+            'foo=1&bar=2'  => ['foo' => 1, 'bar' => 2],
+            'foo&bar='     => ['foo' => null, 'bar' => ''],
+            'foo=bar&baz=' => ['foo' => 'bar', 'baz' => ''],
+
+            'my+weird+field=q1%212%22%27w%245%267%2Fz8%29%3F' => ['my weird field' => "q1!2\"'w$5&7/z8)?"],
+            'a=b&pid%3D1234=1023'                             => ['a' => 'b', 'pid=1234' => '1023'],
         ];
 
         $data_set = [];

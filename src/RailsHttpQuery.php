@@ -10,7 +10,7 @@ final class RailsHttpQuery
      * Generate URL-encoded query string
      *
      * Rails-compatible http_build_query analog.
-     * Uses RFC 3986 compliant encoding (see `rawurlencode`).
+     * Uses RFC 1738 compliant encoding (see `urlencode`).
      *
      * @see http://php.net/manual/en/function.http-build-query.php
      * @see http://php.net/manual/en/function.rawurlencode.php
@@ -38,7 +38,7 @@ final class RailsHttpQuery
             if ($super_var === null) {
                 // if numeric array is given on top-level, use numbers as vars
                 // http_build_query(['a', 'b', 'c']) === '0=a&1=b&2=c'
-                $current_var = rawurlencode((string) $key);
+                $current_var = urlencode((string) $key);
 
             } elseif ($is_incrementing_sequence && $key === $expected_numeric_idx) {
                 $expected_numeric_idx++;
@@ -48,7 +48,7 @@ final class RailsHttpQuery
             } else {
                 // numeric sequence break or non-numeric key, use it explicitly
                 $is_incrementing_sequence = false;
-                $current_var = $super_var . '[' . rawurlencode((string) $key) . ']';
+                $current_var = $super_var . '[' . urlencode((string) $key) . ']';
             }
 
             if (is_array($value) || $value instanceof Traversable || is_object($value)) {
@@ -59,7 +59,7 @@ final class RailsHttpQuery
 
             } else {
                 // scalar value
-                yield $current_var => $value !== null ? rawurlencode($value) : null;
+                yield $current_var => $value !== null ? urlencode($value) : null;
             }
         }
     }
