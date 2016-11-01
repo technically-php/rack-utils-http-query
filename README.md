@@ -37,4 +37,4 @@ This package follows
 Please check [RackUtilsHttpQueryTest.php](./tests/RackUtilsHttpQueryTest.php#L59).
 
 
-[1] http://stackoverflow.com/questions/11996573/php-url-query-nested-array-with-no-index
+[1]: http://stackoverflow.com/questions/11996573/php-url-query-nested-array-with-no-index
